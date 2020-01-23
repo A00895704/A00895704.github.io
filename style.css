@@ -1,7 +1,9 @@
 div:first-child{
-    background-color:blueviolet
+    background-color:blueviolet;
+    border: 2px solid black;
 }
 
 div:last-child{
     background-color:teal;
 }
+
