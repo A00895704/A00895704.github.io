@@ -1,0 +1,7 @@
+div:first-child{
+    background-color:blueviolet
+}
+
+div:last-child{
+    background-color:teal;
+}
