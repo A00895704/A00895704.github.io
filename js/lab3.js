@@ -54,4 +54,10 @@ function add(elem){
  
  function deleteArtist(elem){
    elem.parentNode.remove();
+   var artistName = document.getElementById("addName");
+   var artistAbout = document.getElementById("addAbout");
+   var artistURL = document.getElementById("addURL");
+   artistName.value="";
+   artistAbout.value="";
+   artistURL.value="";
  }
