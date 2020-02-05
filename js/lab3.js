@@ -23,6 +23,7 @@ function add(elem){
    var artistName = document.getElementById("addName");
    var artistAbout = document.getElementById("addAbout");
    var deleteButton = document.createElement("button");
+   
    deleteButton.setAttribute("type", "button");
    deleteButton.setAttribute("onclick", "deleteArtist(this)");
    deleteButton.textContent="Delete";
@@ -31,14 +32,16 @@ function add(elem){
    deleteButton.style.textAlign="center";
    deleteButton.style.borderRadius="5px";
    deleteButton.style.color="white";
-   deleteButton.style.float="right";
+  
    deleteButton.style.display="block";
+   deleteButton.style.padding="10px";
     pName.textContent = artistName.value;
    pName.setAttribute("class", "name");
+   divDesc.style.flexGrow="2";
+   divDesc.style.marginLeft="10%";
     pAbout.textContent = artistAbout.value;
     pAbout.setAttribute("class", "desc");
-   
-   
+    
     divDesc.appendChild(pName);
     divDesc.appendChild(pAbout);
     
