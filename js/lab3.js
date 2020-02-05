@@ -1,16 +1,4 @@
 
-// $.ajax({
-//   url: 'https://randomuser.me/api/',
-//   dataType: 'json',
-//   success: function(data) {
-//     console.log(data);
-//     var p = document.getElementById("pic1");
-//     p.setAttribute("src", data.results[0].picture.medium);
-    
-//   }
-// });
-
-
 function add(elem){
     var addForm = document.getElementById("addForm");
    if(addForm.style.display != "none"){
@@ -18,9 +6,6 @@ function add(elem){
    } else{
      addForm.style.display="block";
    }
-   // document.getElementById("add").style.display="none";
-   //alert("Yes you clicked it");
- 
  }
  
  function addArtistToCollection(elem){
