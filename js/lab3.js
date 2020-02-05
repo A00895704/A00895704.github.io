@@ -33,7 +33,4 @@ function add(elem){
    artistPicture.setAttribute("src", artistURL.Value);
    artistList.appendChild(artistItem);
    artistList.appendChild(divDesc);
-   
-  
-   
  }
