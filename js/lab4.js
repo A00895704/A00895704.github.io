@@ -2,7 +2,6 @@ function start(){
   var artistStorage;
   if(localStorage.getItem('artists')){
     artistStorage = JSON.parse(localStorage.getItem('artists'));
-    //console.log(artistStorage);
     var artistList = document.getElementById("artistList"); 
   
   for(var i=0; i<artistStorage.length; i++){
@@ -94,9 +93,7 @@ function deleteArtist(elem){
       console.log("spliced");
     }
   }
-  localStorage.setItem("artists", JSON.stringify(artistStorage));
-  
-  
+  localStorage.setItem("artists", JSON.stringify(artistStorage)); 
 }
 
 function addArtistToLocalStorage(name, about, url){
@@ -132,7 +129,6 @@ function search(elem){
   var searchInput = document.getElementById("directInput");
   var artistList = document.getElementById("artistList");
   var allArtists = artistList.querySelectorAll("p.name");
-  //console.log(allArtists);
   console.log(searchInput.value);
   console.log(allArtists[0].textContent);
   for(var i=0; i< allArtists.length; i++){
@@ -141,7 +137,5 @@ function search(elem){
     } else{
       allArtists[i].parentElement.parentElement.style.display="flex";
     }
-  }
-  
-  
+  } 
 }
