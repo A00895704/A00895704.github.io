@@ -1,4 +1,12 @@
 function start(){
+  var directInput = document.getElementById("directInput");
+  directInput.addEventListener("keyup", function(event){
+    if(event.keyCode === 13 ){
+      search();
+    }
+  });
+
+
   var artistStorage;
   if(localStorage.getItem('artists')){
     artistStorage = JSON.parse(localStorage.getItem('artists'));
@@ -139,3 +147,4 @@ function search(elem){
     }
   } 
 }
+
