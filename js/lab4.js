@@ -103,26 +103,17 @@ function addArtistToLocalStorage(name, about, url){
    var artistStorage;
   if(localStorage.getItem('artists')){
     artistStorage = JSON.parse(localStorage.getItem('artists'));
-    //console.log("found old storage");
   } else{
     artistStorage = [];
-    //console.log("no existing storage found");
   }
   var newArtist={'artistName':name, 'artistAbout':about, 'artistURL':url};
   artistStorage.push(newArtist);
   localStorage.setItem('artists', JSON.stringify(artistStorage));
-  
-  //console.log(artistStorage);
-  //console.log("added to storage");
-}
-
-function clearStorage(elem){
-  localStorage.clear();
 }
 
 function createDeleteButton(name){
   var deleteButton = document.createElement("button");
-   deleteButton.setAttribute("type", "button");
+  deleteButton.setAttribute("type", "button");
   deleteButton.setAttribute("onclick", "deleteArtist(this)");
   deleteButton.textContent="Delete";
   deleteButton.style.backgroundColor="red";
