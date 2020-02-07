@@ -1,6 +1,6 @@
 function start(){
   var form = document.getElementById("directoryForm");
-  form.addEventListener('submit', search);
+  form.addEventListener('submit', handleForm);
   
   var artistStorage;
   if(localStorage.getItem('artists')){
@@ -142,4 +142,8 @@ function search(elem){
       allArtists[i].parentElement.parentElement.style.display="flex";
     }
   } 
+}
+
+function handleForm(event){
+  event.preventDefault();
 }
