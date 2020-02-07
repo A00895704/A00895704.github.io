@@ -139,7 +139,3 @@ function search(){
     }
   } 
 }
-
-function handleForm(event){
-  event.preventDefault();
-}
