@@ -1,7 +1,6 @@
 function start(){
   var form = document.getElementById("directoryForm");
-  form.addEventListener('submit', handleForm);
-  
+  form.addEventListener('submit', event => { event.preventDefault(); search(); });
   var artistStorage;
   if(localStorage.getItem('artists')){
     artistStorage = JSON.parse(localStorage.getItem('artists'));
@@ -128,13 +127,10 @@ function createDeleteButton(name){
   return deleteButton;
 }
 
-function search(elem){
-  elem.preventDefault();
+function search(){
   var searchInput = document.getElementById("directInput");
   var artistList = document.getElementById("artistList");
   var allArtists = artistList.querySelectorAll("p.name");
-  console.log(searchInput.value);
-  console.log(allArtists[0].textContent);
   for(var i=0; i< allArtists.length; i++){
     if(!allArtists[i].textContent.includes(searchInput.value)){
       allArtists[i].parentElement.parentElement.style.display="none";
