@@ -1,6 +1,7 @@
 function start(){
   var form = document.getElementById("directoryForm");
   form.addEventListener('submit', search);
+  
   var artistStorage;
   if(localStorage.getItem('artists')){
     artistStorage = JSON.parse(localStorage.getItem('artists'));
@@ -128,6 +129,7 @@ function createDeleteButton(name){
 }
 
 function search(elem){
+  elem.preventDefault();
   var searchInput = document.getElementById("directInput");
   var artistList = document.getElementById("artistList");
   var allArtists = artistList.querySelectorAll("p.name");
