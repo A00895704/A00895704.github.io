@@ -35,12 +35,12 @@ function start(){
 }
 
 
-function add(elem){
+function add(){
    var addForm = document.getElementById("addForm");
-  if(addForm.style.display == "none"){
-    addForm.style.display = "block";
+  if(addForm.style.display){
+    addForm.style.display=((addForm.style.display!='none')?'none':'block'); 
   } else{
-    addForm.style.display="none";
+    addForm.style.display='block';
   }
 }
 
