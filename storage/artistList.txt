@@ -1,1 +1,0 @@
-[{"artistName":"ben","artistAbout":"shalem","artistURL":"https://avatars2.githubusercontent.com/u/31975543?s=64&v=4"},{"artistName":"Sher","artistAbout":"Rocker","artistURL":"https://avatars2.githubusercontent.com/u/31975543?s=64&v=4"}]

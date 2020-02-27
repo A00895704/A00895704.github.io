@@ -1,8 +1,11 @@
 var artistStorage={};
 
 artistStorage = getArtistsFromText().then(data=>{
-  artistStorage = data;
-  start();
+  if(data!== null){
+    console.log("wasnt null");
+    artistStorage = data;
+    start();
+  }
 })
 
 function start(){

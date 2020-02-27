@@ -10,8 +10,11 @@ app.use(bodyParser.json());
 app.get('/artistList', (req, res)=>{ 
     fs.readFile('./storage/artistList.txt', (err,data)=>{
         if(err) throw err;
-        //console.log(JSON.parse(data));
-        return res.json(JSON.parse(data));
+        if(data.length >0){
+            return res.json(JSON.parse(data));
+        } else{
+            return res.json([]);
+        }
     });  
 });
 
