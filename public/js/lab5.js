@@ -1,12 +1,9 @@
 var artistStorage={};
 
 artistStorage = getArtistsFromText().then(data=>{
-  if(data!== null){
-    console.log("wasnt null");
     artistStorage = data;
     start();
-  }
-})
+});
 
 function start(){
   var form = document.getElementById("directoryForm");
