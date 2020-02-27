@@ -68,7 +68,6 @@ function addArtistToCollection(elem){
   var newArtist={'artistName':artistName.value, 'artistAbout':artistAbout.value, 'artistURL':artistURL.value};
   artistStorage.push(newArtist);
   saveArtistsToText();
-  //addArtistToLocalStorage(artistName.value, artistAbout.value, artistURL.value);
      
   pName.setAttribute("class", "name");
   divDesc.style.flexGrow="2";
@@ -94,7 +93,6 @@ function addArtistToCollection(elem){
 function deleteArtist(elem){
   var artistIndex=elem.getAttribute("data-index");  
   elem.parentNode.remove();
-  var artistStorage = JSON.parse(localStorage.getItem("artists"));
   var found = false;
   for(var i=0; i<artistStorage.length && !found; i++){
     console.log("searching for " + artistIndex);
@@ -103,19 +101,7 @@ function deleteArtist(elem){
       console.log("spliced");
     }
   }
-  localStorage.setItem("artists", JSON.stringify(artistStorage)); 
-}
-
-function addArtistToLocalStorage(name, about, url){
-   var artistList;
-  if(localStorage.getItem('artists')){
-    artistList = JSON.parse(localStorage.getItem('artists'));
-  } else{
-    artistList = [];
-  }
-  var newArtist={'artistName':name, 'artistAbout':about, 'artistURL':url};
-  artistList.push(newArtist);
-  localStorage.setItem('artists', JSON.stringify(artistList));
+  saveArtistsToText();
 }
 
 async function saveArtistsToText(){
@@ -170,7 +156,7 @@ function search(){
   var artistList = document.getElementById("artistList");
   var allArtists = artistList.querySelectorAll("p.name");
   for(var i=0; i< allArtists.length; i++){
-    if(!allArtists[i].textContent.includes(searchInput.value)){
+    if(!allArtists[i].textContent.toUpperCase().includes(searchInput.value.toUpperCase())){
       allArtists[i].parentElement.parentElement.style.display="none";
     } else{
       allArtists[i].parentElement.parentElement.style.display="flex";
