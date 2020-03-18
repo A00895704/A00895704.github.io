@@ -1,6 +1,9 @@
+//import { response } from "express";
+
 var artistStorage={};
 
-artistStorage = getArtistsFromText().then(data=>{
+getArtistsFromText().then(data=>{
+    console.log(data);
     artistStorage = data;
     start();
 });
@@ -90,18 +93,22 @@ function addArtistToCollection(elem){
   artistURL.value="";
 }
 
-function deleteArtist(elem){
-  var artistIndex=elem.getAttribute("data-index");  
-  elem.parentNode.remove();
+async function deleteArtist(elem){
+  var artistIndex=elem.getAttribute("data-index");
   var found = false;
-  for(var i=0; i<artistStorage.length && !found; i++){
-    console.log("searching for " + artistIndex);
-    if(artistStorage[i].artistName == artistIndex){
-        artistStorage.splice(i, 1);
-      console.log("spliced");
+  try{
+    await deleteArtistsFromText(artistIndex);
+    for(var i=0; i<artistStorage.length && !found; i++){
+      console.log("searching for " + artistIndex);
+      if(artistStorage[i].artistName == artistIndex){
+          artistStorage.splice(i, 1);
+        console.log("spliced");
+      }
     }
-  }
-  saveArtistsToText();
+    elem.parentNode.remove();
+  } catch (err){
+    console.log(err);
+  } 
 }
 
 async function saveArtistsToText(){
@@ -117,6 +124,45 @@ async function saveArtistsToText(){
   }catch(err){
     console.log(err);
   }
+}
+
+async function deleteArtistsFromText(artistIndex){
+  return new Promise(async(resolve, reject)=>{
+    try{
+      let res = await fetch(`/artistList/${artistIndex}`, {
+        method: 'DELETE',
+        headers:{
+          'Content-Type': 'application/json'
+        },
+        
+      });
+      console.log(res);
+      if(!res.ok) throw res;
+      resolve(res);
+    }catch(err){
+      console.log(err);
+      reject(err);
+    }
+  });
+}
+
+async function getArtistsFromInput(name){
+  return new Promise(async(resolve, reject) =>{
+    try{
+        let res = await fetch(`/artistList/${name}`, {
+          method:'GET',
+          headers:{
+            'Content-Type': 'application/json'
+          }
+        });
+        if(!res.ok) throw res;
+        var data = await res.json();
+        resolve(data);
+    } catch(err){
+      console.log(err);
+      reject(err);
+    }
+  });
 }
 
 async function getArtistsFromText(){
@@ -155,11 +201,26 @@ function search(){
   var searchInput = document.getElementById("directInput");
   var artistList = document.getElementById("artistList");
   var allArtists = artistList.querySelectorAll("p.name");
-  for(var i=0; i< allArtists.length; i++){
-    if(!allArtists[i].textContent.toUpperCase().includes(searchInput.value.toUpperCase())){
-      allArtists[i].parentElement.parentElement.style.display="none";
-    } else{
+  if(searchInput.value !== ""){
+    getArtistsFromInput(searchInput.value).then(data=>{
+      console.log(data);
+        for(var i=0; i< allArtists.length; i++){
+          for(var j=0; j< data.length; j++){
+            if(!allArtists[i].textContent.includes(data[j].artistName)){
+              allArtists[i].parentElement.parentElement.style.display="none";
+            } else{
+              allArtists[i].parentElement.parentElement.style.display="flex";
+            }
+          }    
+     } 
+    });
+  } else{
+    alert("No search parameters found.");
+    for(var i=0; i<allArtists.length; i++){
       allArtists[i].parentElement.parentElement.style.display="flex";
     }
-  } 
+  }
+  
 }
+
+
