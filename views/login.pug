@@ -5,15 +5,15 @@ html
         link(href="css/login.css" type="text/css" rel="stylesheet")
     body
         main
-            form#login-form(href="/login" method="post")
-            h3 Member Login
-            if msg
-                p.error = msg 
-            else 
-                p.space
-            div
-                input(name="username" type="text" placeholder="username" required)
-            div
-                input(name="password" type="password" placeholder="password" required)
-            button.login(type="submit") Login
-            
+            div#login-box
+                form#login-form(href="/login" method="post")
+                    h3 Member Login
+                    if msg
+                        p#error= msg 
+                    else 
+                        p#space
+                    div
+                        input(name="username" type="text" placeholder="username" required)
+                    div
+                        input(name="password" type="password" placeholder="password" required)
+                    button.login(type="submit") Login

@@ -1,0 +1,50 @@
+div#login-box{
+    margin:auto;
+    width:50%;
+    text-align:center;
+    background-color:#f5f6f7;
+    padding-top:10px;
+
+}
+
+h3{
+    color:gray;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button.login{
+    padding:10px;
+    padding-left:50px;
+    padding-right:50px;
+    border:none;
+    text-align:center;
+    background-color:#fcba03;
+    color:white;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:20px;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+input{    
+    border:1px solid gainsboro;
+    align-items: center;
+    padding:10px;
+}
+
+input::placeholder{
+    font-style:italic;
+    color:gray;
+}
+
+p#error{
+    text-align:center;
+    color:brown;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:10pt;
+    font-style:italic;
+}
+
+p#space{
+    margin:10px;
+}
