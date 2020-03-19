@@ -1,7 +1,6 @@
 let express = require('express');
 let bodyParser = require('body-parser');
 let app = express();
-//const fs = require('fs');
 //const loginRoute = require('./routes/loginRoute');
 const artistRoute = require('./routes/artistRoutes'); 
 

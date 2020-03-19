@@ -1,3 +1,22 @@
+//submits form button
+const addBtn = document.getElementById('addArtist');
+//display form button
+const addFormButton = document.getElementById('displayAddForm');
+//add form
+const addForm = document.getElementById('addForm');
+
+addFormButton.addEventListener('click', ()=>{
+  if(addForm.style.display ==="none"){
+    addForm.style.display = "block";
+  } else{
+    addForm.style.display = "none";
+  }
+});
+
+
+
+
+
 // var artistStorage={};
 
 // getArtistsFromText().then(data=>{

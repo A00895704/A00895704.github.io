@@ -1,11 +1,13 @@
 let artistModel = require('../models/artistData');
 
 exports.getAllArtists = async(req, res, next) =>{
-    if(req.query.filter){
-        const filter = req.query.filter;
+    if(req.query.searchInput){
+        const filter = req.query.searchInput;
         data = await artistModel.getartistsfiltered(filter);
+        console.log("something");
         return res.render('artist', {artists:data.rows, filter:filter});
     }else{
+        console.log("no filter");
         let data = await artistModel.getall();
         res.render('artist', {artists:data.rows});
     }
