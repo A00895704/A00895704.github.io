@@ -3,7 +3,7 @@ a.deleteBtn{
   background-color: red;
   border:none;
   text-align:center;
-  border-radius:5px;
+  border-radius:10px;
   color:white;
   display:block;
   padding:10px;
@@ -104,5 +104,26 @@ div#addForm{
 }
 
 
+header{
+  background-color:orange;
+  margin-bottom: 100px;
+  display:flex;
+  justify-content: flex-end;
+  padding:10px 25px;
+  
+}
 
+body{
+  margin:0;
+}
+
+a#logoutBtn{
+  background-color: purple;
+  border:none;
+  text-align:center;
+  border-radius:10px;
+  color:white;
+  display:block;
+  padding:10px;
+}
 

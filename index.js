@@ -1,7 +1,7 @@
 let express = require('express');
 let bodyParser = require('body-parser');
 let app = express();
-//const loginRoute = require('./routes/loginRoute');
+const loginRoute = require('./routes/loginRoute');
 const artistRoute = require('./routes/artistRoutes'); 
 
 
@@ -11,10 +11,10 @@ app.use(bodyParser.json());
 
 app.set('view engine', 'pug');
 
-//app.use(loginRoute);
+app.use(loginRoute);
 app.use(artistRoute);
 app.get('/', (req, res, next)=>{
-    res.redirect(301, '/artistList');
+    res.redirect(301, '/login');
 });
 
 app.listen(process.env.PORT|| 3000, () => console.log('Server ready'))
