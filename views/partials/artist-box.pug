@@ -1,0 +1,7 @@
+li.artists
+    img(src=artist.url)
+    div.artistDivBox
+        p.name= artist.name
+        p.desc= artist.about
+    a.deleteBtn(href="/artistList/delete/"+ artist.artist_id) Delete   
+

@@ -1,0 +1,15 @@
+div.position(id='firstdiv')
+    h1 Artist Directory
+    form.directoryForm(action="/artists", method="get")
+        input(type='text' name='searchInput' id='directInput' value=filter)
+        button(type='button') Add artist
+        button(type='button') Search
+
+//- <div class="position" id="firstdiv">
+//-   <h1>Artist Directory</h1>
+//-   <form id="directoryForm">
+//-     <input type="text" name="artistname" id="directInput">
+//-     <button type="button" onclick="add()">Add Artist</button>
+//-     <button type="submit" onclick="search(this)">Search</button>
+//-   </form>
+//- </div>
